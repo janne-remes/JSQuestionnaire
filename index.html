@@ -10,20 +10,29 @@
 <div id="startBlock">
     <h1>Tervetuloa</h1>
     <p>Vastaa kysymyksiin parhaan kykysi mukaan.</p>
-    <button onclick="startQuestionnaire()" >Aloita</button>
+    <button onclick="startQuestionnaire()">Aloita</button>
 </div>
 
 <div id="questionsBlock">
 <h1>Kysymys</h1>
-    <p id="questionline"></p>
-    <p id="answerBlock"></p>
-    
+    <p id="questionline">Mitä kuuluu?</p>
+
+    <p id="answerBlockOne">1. Ihan hyvää.</p>
+    <button id="answerOneChoosed" onclick="selectAnswerOne()">Vastaa</button>
+
+    <p id="answerBlockTwo">2. Joskus on mennyt paremminkin.</p>
+    <button id="answerTwoChoosed" onclick="selectAnswerTwo()">Vastaa</button>
+
+    <p id="answerBlockThree">3. Ei mitään.</p>
+    <button id="answerThreeChoosed" onclick="selectAnswerThree()">Vastaa</button>
+
 </div>
 
 <div id="endSummary">
     <h1>Kooste</h1>
     <div id="endBlock"></div>
-    <button onclick="startQuestionnaire()" >Aloita alusta</button>
+    <p id ="resultAnalysis"></p>
+    <button onclick="startQuestionnaire()">Aloita alusta</button>
 </div>
 
 <script src="myClasses.js"></script>
