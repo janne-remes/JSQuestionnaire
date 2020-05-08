@@ -1,12 +1,11 @@
 class Question{
     
-    constructor(question){
-        this.presentedQuiz = question;
+    constructor(exactQuestion, answerChoices){
+        this.exactQuestion = exactQuestion;
+        this.answerChoices = answerChoices;
     }
 
-    constructor(answer)
-
     static getQuestion(){
-        return question;
+        return exactQuestion;
     }
 }
