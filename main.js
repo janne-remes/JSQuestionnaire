@@ -1,11 +1,17 @@
-//var question;
 var presentedQuestions = [];
+var qurrentQuestionId;
+var answerIndexes = [];
 
 function onStart(){
+    
+    document.getElementById("questionsBlock").style.visibility = "hidden";
+    document.getElementById("endSummary").style.visibility = "hidden";
+    
     var questionOne = presentedQuestions.push(
         new Question(
-            "Millaista musiikkia kuuntelet?",
+            "Millaista musiikkia tykkäät kuunnella?",
             [
+                "Klassista musiikkia",
                 "Vanhoja ikivihreitä",
                 "Konemusiikkia",
                 "Raskasta musiikkia",
@@ -15,34 +21,77 @@ function onStart(){
         )
     );
 
-    /*var questionTwo = presentedQuestions.push(
+    var questionTwo = presentedQuestions.push(
         new Question(
-            "Millaisista elokuvistä pidät?",
+            "Millaisista elokuvista pidät?",
             [
                 "Romanttisista tarinoista",
                 "Komedioista",
                 "Jännittävistä elokuvista",
-                "Tieteiskuvitelmista"
+                "Tieteiskuvitelmista",
+                "En katso elokuvia"
             ]
         )
-    );*/
-    
-    document.getElementById("questionsBlock").style.visibility = "hidden";
-    document.getElementById("endSummary").style.visibility = "hidden";
+    );
+
+    var questionThree = presentedQuestions.push(
+        new Question(
+            "Mikä on lempiruokaasi?",
+            [
+                "Perinteiset kotiruoat",
+                "Aasialainen keittiö",
+                "Mausteiset ruoat",
+                "Keitot",
+                "Jälkiruoat"
+            ]
+        )
+    );
 }
 
 function startQuestionnaire(){
     
-    document.getElementById("questionline").innerHTML = presentedQuestions[0].exactQuestion;
-
-    document.getElementById("answerBlock").innerHTML = presentedQuestions[0].answerChoices;
-    
     document.getElementById("startBlock").style.visibility = "hidden";
     document.getElementById("questionsBlock").style.visibility = "visible";
     document.getElementById("endSummary").style.visibility = "hidden";
+
+    qurrentQuestionId = 0;
+
+    answerIndexes = new Array();
+
+    askNextQuestion();
+
+    document.getElementById("questionline").innerHTML = presentedQuestions[0].exactQuestion;
+
+    document.getElementById("answerBlock").innerHTML = presentedQuestions[0].answerChoices +
+    "<button>VASTAA</button>";
 }
 
-/*
-console.log();
-console.log(presentedQuestions);
-*/
+function showQuestion(exactQuestion){
+    //
+    var questionToAsk = exactQuestion;
+    document.getElementById("questionline").innerHTML = questionToAsk;
+    showAnswerOptions();
+}
+
+function askNextQuestion(){
+    //
+    if(presentedQuestions.length > qurrentQuestionId){
+        showQuestion();
+    }
+
+    else{
+        showEndSummary();
+    }
+}
+
+function showAnswerOptions(answerChoices){
+    //
+}
+
+function answerButtonClicked(index){
+    //
+}
+
+function showEndSummary(){
+    //
+}

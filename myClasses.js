@@ -5,7 +5,7 @@ class Question{
         this.answerChoices = answerChoices;
     }
 
-    static getQuestion(){
-        return exactQuestion;
+    static getQuestion(questionObject){
+        return questionObject = exactQuestion;
     }
 }
